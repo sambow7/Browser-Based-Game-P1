@@ -20,9 +20,10 @@ body {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px 2px;
-  /* background-image: url("/css/Circut_board_image.jpg");
+  background-image: url("/css/Circut_board_image.jpg");
   background-size: 15em;
-  background-repeat: contain; */
+  background-repeat: contain;
+  color: rgb(186, 255, 186);
 }
 
 .btn-grid {

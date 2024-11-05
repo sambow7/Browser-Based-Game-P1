@@ -57,7 +57,7 @@ const textNodes = [
   },
   {
     id: 2,
-    text: 'You venture on in search of answers you come across a gaurd outside Corpo',
+    text: 'You venture on in search of answers and come across a gaurd outside Corpo',
     options: [
       {
         text: 'Barder the hacking device for a Laser Gun',
@@ -152,7 +152,7 @@ const textNodes = [
   },
   {
     id: 8,
-    text: 'You havent been doing your cardio so you fail to out run the robot and it easily catches.',
+    text: 'You havent been doing your cardio so you fail to out run the robot and it easily catches you.',
     options: [
       {
         text: 'Restart',
