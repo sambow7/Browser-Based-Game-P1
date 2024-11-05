@@ -23,7 +23,7 @@ function showTextNode(textNodeIndex) {
       button.addEventListener('click', () => selectOption(option))
       optionButtonsElement.appendChild(button)
     }
-  })
+  });
 }
 
 function showOption(option) {
@@ -42,62 +42,62 @@ function selectOption(option) {
 const textNodes = [
   {
     id: 1,
-    text: "",
+    text: "Standing outside Corpo before you enter you notice a hacking device on the ground.",
     options: [
       {
-        text: 'Take the goo',
-        setState: { blueGoo: true },
+        text: "Take the hacking device",
+        setState: { tablet: true },
         nextText: 2
       },
       {
-        text: 'Leave the goo',
+        text: "Leave the hacking device",
         nextText: 2
       }
     ]
   },
   {
     id: 2,
-    text: 'You venture forth in search of answers to where you are when you come across a merchant.',
+    text: 'You venture on in search of answers you come across a gaurd outside Corpo',
     options: [
       {
-        text: 'Trade the goo for a sword',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: { blueGoo: false, sword: true },
+        text: 'Barder the hacking device for a Laser Gun',
+        requiredState: (currentState) => currentState.tablet,
+        setState: { tablet: false, laserGun: true },
         nextText: 3
       },
       {
-        text: 'Trade the goo for a shield',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: { blueGoo: false, shield: true },
+        text: 'Trade the hacking device for a deployable shield',
+        requiredState: (currentState) => currentState.tablet,
+        setState: { tablet: false, shield: true },
         nextText: 3
       },
       {
-        text: 'Ignore the merchant',
+        text: 'Ignore the gaurd',
         nextText: 3
       }
     ]
   },
   {
     id: 3,
-    text: 'After leaving the merchant you start to feel tired and stumble upon a small town next to a dangerous looking castle.',
+    text: 'After leaving the gaurd you you look for a way to sneak in.',
     options: [
       {
-        text: 'Explore the castle',
+        text: 'Enter through the sewage pipe',
         nextText: 4
       },
       {
-        text: 'Find a room to sleep at in the town',
+        text: 'Wait out front for a delivery truck and hide in the back',
         nextText: 5
       },
       {
-        text: 'Find some hay in a stable to sleep in',
+        text: 'Find a grassy patch to rest and sneak at night',
         nextText: 6
       }
     ]
   },
   {
     id: 4,
-    text: 'You are so tired that you fall asleep while exploring the castle and are killed by some terrible monster in your sleep.',
+    text: 'You are so tired that you fall asleep while exploring the outside Corpo and are killed by some evil robot in your sleep.',
     options: [
       {
         text: 'Restart',
@@ -107,7 +107,7 @@ const textNodes = [
   },
   {
     id: 5,
-    text: 'Without any money to buy a room you break into the nearest inn and fall asleep. After a few hours of sleep the owner of the inn finds you and has the town guard lock you in a cell.',
+    text: "After sneaking into the delivery truck you notice the delivery is full of pillows for high council so you fall asleep only to be discovered when the delivery gaurd opens the back.",
     options: [
       {
         text: 'Restart',
@@ -117,25 +117,25 @@ const textNodes = [
   },
   {
     id: 6,
-    text: 'You wake up well rested and full of energy ready to explore the nearby castle.',
+    text: 'You wake up well rested and full of energy ready to sneak into Corpo.',
     options: [
       {
-        text: 'Explore the castle',
+        text: 'Explore Corpo',
         nextText: 7
       }
     ]
   },
   {
     id: 7,
-    text: 'While exploring the castle you come across a horrible monster in your path.',
+    text: 'While exploring Corpo you come across a evil robot in your path.',
     options: [
       {
         text: 'Try to run',
         nextText: 8
       },
       {
-        text: 'Attack it with your sword',
-        requiredState: (currentState) => currentState.sword,
+        text: 'Attack it with your laser gun',
+        requiredState: (currentState) => currentState.laserGun,
         nextText: 9
       },
       {
@@ -144,15 +144,15 @@ const textNodes = [
         nextText: 10
       },
       {
-        text: 'Throw the blue goo at it',
-        requiredState: (currentState) => currentState.blueGoo,
+        text: 'Throw the tablet at it',
+        requiredState: (currentState) => currentState.tablet,
         nextText: 11
       }
     ]
   },
   {
     id: 8,
-    text: 'Your attempts to run are in vain and the monster easily catches.',
+    text: 'You havent been doing your cardio so you fail to out run the robot and it easily catches.',
     options: [
       {
         text: 'Restart',
@@ -162,7 +162,7 @@ const textNodes = [
   },
   {
     id: 9,
-    text: 'You foolishly thought this monster could be slain with a single sword.',
+    text: 'You foolishly thought this robot could be destroyed with a single laser gun.',
     options: [
       {
         text: 'Restart',
@@ -172,7 +172,7 @@ const textNodes = [
   },
   {
     id: 10,
-    text: 'The monster laughed as you hid behind your shield and ate you.',
+    text: 'The monster laughed as you hid behind your shield and crushes you.',
     options: [
       {
         text: 'Restart',
@@ -182,7 +182,7 @@ const textNodes = [
   },
   {
     id: 11,
-    text: 'You threw your jar of goo at the monster and it exploded. After the dust settled you saw the monster was destroyed. Seeing your victory you decide to claim this castle as your and live out the rest of your days there.',
+    text: 'You threw your tablet at the robot and he steps on it like a lego and falls over. After the dust settled you saw the robot short circuted. Seeing your victory you decide to claim Corpo as your and live out the rest of your days there.',
     options: [
       {
         text: 'Congratulations. Play Again.',
@@ -192,6 +192,5 @@ const textNodes = [
   }
 ]
 
-/*----------- Event Listeners ----------*/
 
 startGame()
