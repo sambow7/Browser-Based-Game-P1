@@ -7,7 +7,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: black;
-  background-image: url('/css/Corpo_image.jpg');
+  background-image: url('/css/images/Corpo_image.jpg');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -20,7 +20,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px 2px;
-  background-image: url("/css/Circut_board_image.jpg");
+  background-image: url("/css/images/Circut_board_image.jpg");
   background-size: 15em;
   background-repeat: contain;
   color: rgb(186, 255, 186);

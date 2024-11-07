@@ -1,42 +1,66 @@
-const textElement = document.getElementById('text')
-const optionButtonsElement = document.getElementById('option-buttons')
+const textElement = document.getElementById('text');
+const optionButtonsElement = document.getElementById('option-buttons');
 
-let state = {}
+// Audio
+const backgroundMusic = document.getElementById("background-music");
+const clickSound = document.getElementById("click-sound");
+const victorySound = document.getElementById("victory-sound");
+
+let state = {};
 
 function startGame() {
-  state = {}
-  showTextNode(1)
+  state = {};
+  showTextNode(1);
+
+  // Start background music when the game begins, ensuring it only plays once
+  if (backgroundMusic.paused) {
+    backgroundMusic.volume = 0.5;
+    backgroundMusic.play();
+  }
 }
 
 function showTextNode(textNodeIndex) {
-  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-  textElement.innerText = textNode.text
+  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
+  textElement.innerText = textNode.text;
+  
+  // Clear previous options
   while (optionButtonsElement.firstChild) {
-    optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+    optionButtonsElement.removeChild(optionButtonsElement.firstChild);
   }
 
+  // Display options for the current text node
   textNode.options.forEach(option => {
     if (showOption(option)) {
-      const button = document.createElement('button')
-      button.innerText = option.text
-      button.classList.add('btn')
-      button.addEventListener('click', () => selectOption(option))
-      optionButtonsElement.appendChild(button)
+      const button = document.createElement('button');
+      button.innerText = option.text;
+      button.classList.add('btn');
+      button.addEventListener('click', () => selectOption(option));
+      optionButtonsElement.appendChild(button);
     }
   });
 }
 
 function showOption(option) {
-  return option.requiredState == null || option.requiredState(state)
+  return option.requiredState == null || option.requiredState(state);
 }
 
 function selectOption(option) {
-  const nextTextNodeId = option.nextText
-  if (nextTextNodeId <= 0) {
-    return startGame()
+  // Play click sound on each choice
+  clickSound.play();
+
+  const nextTextNodeId = option.nextText;
+  
+  // If the player has reached the end (e.g., restarting), play victory sound
+  if (nextTextNodeId === -1) {
+    if (option.text.includes("Victory")) {
+      victorySound.play(); // Play victory sound only if the text indicates victory
+    }
+    return startGame();
   }
-  state = Object.assign(state, option.setState)
-  showTextNode(nextTextNodeId)
+
+  // Update the game state and show the next text node
+  state = Object.assign(state, option.setState);
+  showTextNode(nextTextNodeId);
 }
 
 const textNodes = [
@@ -172,7 +196,7 @@ const textNodes = [
   },
   {
     id: 10,
-    text: 'The monster laughed as you hid behind your shield and crushes you.',
+    text: 'The robot laughed as you hid behind your shield and then crushes you.',
     options: [
       {
         text: 'Restart',
@@ -182,10 +206,10 @@ const textNodes = [
   },
   {
     id: 11,
-    text: 'You threw your tablet at the robot and he steps on it like a lego and falls over. After the dust settled you saw the robot short circuted. Seeing your victory you decide to claim Corpo as your and live out the rest of your days there.',
+    text: 'You threw your tablet at the robot and he steps on it like a lego and falls over. After the dust settled you saw the robot short circuted. Seeing your victory you decide to claim Corpo as yours and live out the rest of your days there.',
     options: [
       {
-        text: 'Congratulations. Play Again.',
+        text: 'Victory! Play Again.',
         nextText: -1
       }
     ]
