@@ -39,3 +39,16 @@ body {
   border-radius: 3px 20px;
   color: rgb(186, 255, 186);
 }
+
+.btn:hover {
+  background-color: #97f487;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(63, 111, 48, 0.3);
+  color: black;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
