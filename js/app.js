@@ -5,14 +5,16 @@ const optionButtonsElement = document.getElementById('option-buttons');
 const backgroundMusic = document.getElementById("background-music");
 const clickSound = document.getElementById("click-sound");
 const toggleMusicButton = document.getElementById("toggle-music");
+const victorySound = document.getElementById("victory-sound");
+
 
 let state = {};
 
-// Function to play background music with a volume setting
+// Function to play background music
 function playBackgroundMusic() {
   if (backgroundMusic) {
-    backgroundMusic.volume = 0.5; // Optional: Set initial volume
-    backgroundMusic.loop = true; // Loop the background music
+    backgroundMusic.volume = 0.5; 
+    backgroundMusic.loop = true;
     backgroundMusic.play().catch(error => {
       console.log("Autoplay blocked: ", error);
     });
@@ -30,14 +32,12 @@ function toggleMusic() {
   }
 }
 
-// Add event listener to the toggle music button
 toggleMusicButton.addEventListener('click', toggleMusic);
 
 function startGame() {
   state = {};
   showTextNode(1);
 
-  // Start background music when the game begins
   playBackgroundMusic();
 }
 
@@ -66,13 +66,27 @@ function showOption(option) {
   return option.requiredState == null || option.requiredState(state);
 }
 
+// Play click sound
 function selectOption(option) {
-  // Play click sound on each choice
+  
   clickSound.play();
 
   const nextTextNodeId = option.nextText;
 
-  // If the player has reached the end, restart the game
+// Check if the selected option is a victory condition
+if (nextTextNodeId === 11) { // "Throw the tablet at it" leads to victory
+  showTextNode(nextTextNodeId);
+  victorySound.play(); 
+
+  // Delay restarting the game
+  setTimeout(() => {
+    startGame();
+  }, 20000); //(seconds)
+  
+  return; // Exit early to prevent further execution
+}
+
+  // restart the game
   if (nextTextNodeId === -1) {
     return startGame();
   }
@@ -189,7 +203,7 @@ const textNodes = [
       {
         text: 'Throw the tablet at it',
         requiredState: (currentState) => currentState.tablet,
-        nextText: 11
+        nextText: 11,
       }
     ]
   },
@@ -229,7 +243,9 @@ const textNodes = [
     options: [
       {
         text: 'Victory! Play Again.',
-        nextText: -1
+        nextText: -1,
+        victory: true
+        
       }
     ]
   }
