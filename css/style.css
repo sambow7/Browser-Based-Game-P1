@@ -12,6 +12,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+#toggle-music {
+  position: absolute; 
+  top: 20px;          
+  left: 20px; 
+  padding: 10px 20px;
+}
 
 .container  { 
   width: 800px;
@@ -27,6 +33,7 @@ body {
   color: rgb(186, 255, 186);
   margin-top: 30em;
 }
+
 
 .btn-grid {
   display: grid;
@@ -53,4 +60,5 @@ body {
   transform: scale(0.95);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
 

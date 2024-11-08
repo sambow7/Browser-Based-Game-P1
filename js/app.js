@@ -4,6 +4,7 @@ const optionButtonsElement = document.getElementById('option-buttons');
 // Audio elements
 const backgroundMusic = document.getElementById("background-music");
 const clickSound = document.getElementById("click-sound");
+const toggleMusicButton = document.getElementById("toggle-music");
 
 let state = {};
 
@@ -17,6 +18,20 @@ function playBackgroundMusic() {
     });
   }
 }
+
+// Function to toggle music between play and pause
+function toggleMusic() {
+  if (backgroundMusic.paused) {
+    backgroundMusic.play();
+    toggleMusicButton.innerText = "Pause Music";
+  } else {
+    backgroundMusic.pause();
+    toggleMusicButton.innerText = "Play Music";
+  }
+}
+
+// Add event listener to the toggle music button
+toggleMusicButton.addEventListener('click', toggleMusic);
 
 function startGame() {
   state = {};
