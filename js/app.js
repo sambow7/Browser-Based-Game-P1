@@ -1,28 +1,35 @@
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('option-buttons');
 
-// Audio
+// Audio elements
 const backgroundMusic = document.getElementById("background-music");
 const clickSound = document.getElementById("click-sound");
-const victorySound = document.getElementById("victory-sound");
 
 let state = {};
+
+// Function to play background music with a volume setting
+function playBackgroundMusic() {
+  if (backgroundMusic) {
+    backgroundMusic.volume = 0.5; // Optional: Set initial volume
+    backgroundMusic.loop = true; // Loop the background music
+    backgroundMusic.play().catch(error => {
+      console.log("Autoplay blocked: ", error);
+    });
+  }
+}
 
 function startGame() {
   state = {};
   showTextNode(1);
 
-  // Start background music when the game begins, ensuring it only plays once
-  if (backgroundMusic.paused) {
-    backgroundMusic.volume = 0.5;
-    backgroundMusic.play();
-  }
+  // Start background music when the game begins
+  playBackgroundMusic();
 }
 
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
   textElement.innerText = textNode.text;
-  
+
   // Clear previous options
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild);
@@ -49,12 +56,9 @@ function selectOption(option) {
   clickSound.play();
 
   const nextTextNodeId = option.nextText;
-  
-  // If the player has reached the end (e.g., restarting), play victory sound
+
+  // If the player has reached the end, restart the game
   if (nextTextNodeId === -1) {
-    if (option.text.includes("Victory")) {
-      victorySound.play(); // Play victory sound only if the text indicates victory
-    }
     return startGame();
   }
 
