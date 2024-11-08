@@ -239,7 +239,7 @@ const textNodes = [
   },
   {
     id: 11,
-    text: 'You threw your tablet at the robot and he steps on it like a lego and falls over. After the dust settled you saw the robot short circuted. Seeing your victory you decide to claim Corpo as yours and live out the rest of your days there.',
+    text: 'You threw your tablet at the robot. He steps on it like a lego and falls over. After the dust settled you saw the robot short circuted. Seeing your victory you decide to claim Corpo as yours and live out the rest of your days there.',
     options: [
       {
         text: 'Victory! Play Again.',
