@@ -12,4 +12,10 @@
 - Replayable: Play through different scenarios with branching choices and varying outcomes.
 - Responsive Design: Optimized for desktop and mobile browsers.
 
-![Home Page](./css/images/Corpo_home_page.jpg)
+![Home Page](./css/images/Corpo_home_page_1.jpg)
+
+![Page 1](./css/images/Corpo_Page_1.jpg)
+
+[Visit my GitHub profile](https://github.com/sambow7)
+
+[My Awesome browser-based-game "CORPO"](https://sambow7.github.io/Browser-Based-Game-P1/)
