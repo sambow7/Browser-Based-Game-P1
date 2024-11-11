@@ -46,7 +46,7 @@ body {
 @media (max-width: 768px) {
   .container {
     width: 90%;
-    padding: 20px;
+    padding: 15px;
   }
 
   .btn {
@@ -97,27 +97,29 @@ body {
   font-family: 'Orbitron', sans-serif;
   text-align: center;
   padding: 20px;
+  overflow-wrap: break-word;
 }
 
 #intro-screen h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 20px;
 }
 
 #intro-screen p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 30px;
 }
 
 #start-button {
   background-color: rgb(0, 0, 0);
   border: 1px solid rgb(7, 177, 7);
-  border-radius: 5px;
+  border-radius: 3px 20px;
   color: rgb(186, 255, 186);
   font-family: 'Orbitron', sans-serif;
   font-size: 1.2em;
   padding: 12px 24px;
   cursor: pointer;
+  box-shadow: 0 0 10px 2px;
 }
 
 #start-button:hover {

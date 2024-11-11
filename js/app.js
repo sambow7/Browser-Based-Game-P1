@@ -21,7 +21,6 @@ function playBackgroundMusic() {
   }
 }
 
-// Function to toggle music between play and pause
 function toggleMusic() {
   if (backgroundMusic.paused) {
     backgroundMusic.play();
@@ -48,9 +47,6 @@ document.getElementById('start-button').addEventListener('click', function () {
   startGame(); // Start the game after hiding the intro screen
 });
 
-// startGame(); // Remove this call if you only want the game to start when clicking "Start Game"
-
-
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
   textElement.innerText = textNode.text;
@@ -60,7 +56,6 @@ function showTextNode(textNodeIndex) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild);
   }
 
-  // Display options for the current text node
   textNode.options.forEach(option => {
     if (showOption(option)) {
       const button = document.createElement("button");
@@ -76,7 +71,6 @@ function showOption(option) {
   return option.requiredState == null || option.requiredState(state);
 }
 
-// Play click sound
 function selectOption(option) {
 
   clickSound.play();
@@ -93,7 +87,7 @@ function selectOption(option) {
       startGame();
     }, 20000); //(seconds)
 
-    return; // Exit early to prevent further execution
+    return;
   }
 
   // restart the game
@@ -101,7 +95,6 @@ function selectOption(option) {
     return startGame();
   }
 
-  // Update the game state and show the next text node
   state = Object.assign(state, option.setState);
   showTextNode(nextTextNodeId);
 }
