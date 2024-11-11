@@ -16,6 +16,6 @@
 
 ![Page 1](./css/images/Corpo_Page_1.jpg)
 
-[Visit my GitHub profile](https://github.com/sambow7)
+[Return to my GitHub profile](https://github.com/sambow7)
 
-[My Awesome browser-based-game "CORPO"](https://sambow7.github.io/Browser-Based-Game-P1/)
+[Let's play "CORPO"](https://sambow7.github.io/Browser-Based-Game-P1/)
