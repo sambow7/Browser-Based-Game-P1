@@ -75,14 +75,21 @@ body {
 /* Mobile */
 @media (max-width: 768px) {
   .container {
-    width: 50%;
+    width: 90%;
     padding: 15px;
   }
 
   .btn {
-    font-size: 1.2rem;
-    padding: 12px 24px;
+    font-size: 1rem;
+    padding: 1opx;
   }
+  
+  .btn-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 5px;
+    margin-top: 10px;
+  }
+
   #intro-screen {
     height: 100%;
     padding: 10px;
