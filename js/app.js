@@ -13,7 +13,7 @@ let state = {};
 // Function to play background music
 function playBackgroundMusic() {
   if (backgroundMusic) {
-    backgroundMusic.volume = 0.5; 
+    backgroundMusic.volume = 0.5;
     backgroundMusic.loop = true;
     backgroundMusic.play().catch(error => {
       console.log("Autoplay blocked: ", error);
@@ -34,12 +34,22 @@ function toggleMusic() {
 
 toggleMusicButton.addEventListener("click", toggleMusic);
 
+// Function to start the game
 function startGame() {
   state = {};
   showTextNode(1);
-
   playBackgroundMusic();
 }
+
+// JavaScript to handle the intro screen and start button
+document.getElementById('start-button').addEventListener('click', function () {
+  document.getElementById('intro-screen').style.display = 'none'; // Hide intro screen
+  document.getElementById('game-container').style.display = 'block'; // Show game container
+  startGame(); // Start the game after hiding the intro screen
+});
+
+// startGame(); // Remove this call if you only want the game to start when clicking "Start Game"
+
 
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
@@ -68,23 +78,23 @@ function showOption(option) {
 
 // Play click sound
 function selectOption(option) {
-  
+
   clickSound.play();
 
   const nextTextNodeId = option.nextText;
 
-// Check if the selected option is a victory condition
-if (nextTextNodeId === 11) { // "Throw the tablet at it" leads to victory
-  showTextNode(nextTextNodeId);
-  victorySound.play(); 
+  // Check if the selected option is a victory condition
+  if (nextTextNodeId === 11) { // "Throw the tablet at it" leads to victory
+    showTextNode(nextTextNodeId);
+    victorySound.play();
 
-  // Delay restarting the game
-  setTimeout(() => {
-    startGame();
-  }, 20000); //(seconds)
-  
-  return; // Exit early to prevent further execution
-}
+    // Delay restarting the game
+    setTimeout(() => {
+      startGame();
+    }, 20000); //(seconds)
+
+    return; // Exit early to prevent further execution
+  }
 
   // restart the game
   if (nextTextNodeId === -1) {
@@ -245,11 +255,11 @@ const textNodes = [
         text: "Victory! Play Again.",
         nextText: -1,
         victory: true
-        
+
       }
     ]
   }
 ]
 
 
-startGame()
+startGame();
