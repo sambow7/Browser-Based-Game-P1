@@ -19,7 +19,8 @@ body {
   padding: 10px 20px;
 }
 
-.container  { 
+/* Your existing styles */
+.container {
   width: 800px;
   max-width: 80%;
   max-height: 80%;
@@ -28,13 +29,25 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 10px 2px;
   background-repeat: contain;
-  color:  rgb(186, 255, 186);
+  color: rgb(186, 255, 186);
   margin-top: 30em;
   font-family: 'Orbitron', sans-serif;
   background: linear-gradient(to top, rgba(255,0,0,0) 0%,rgba(0, 0, 0, 0.65) 30%),
   url("./images/Circut_board_image.jpg") repeat;
   background-size: 10em;
-  
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 90%; 
+    padding: 20px; 
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+  }
 }
 
 
