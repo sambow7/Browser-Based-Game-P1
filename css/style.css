@@ -81,9 +81,9 @@ body {
 
   .btn {
     font-size: 1rem;
-    padding: 1opx;
+    padding: 10px;
   }
-  
+
   .btn-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 5px;
