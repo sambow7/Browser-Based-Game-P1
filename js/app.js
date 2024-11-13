@@ -40,11 +40,10 @@ function startGame() {
   playBackgroundMusic();
 }
 
-// JavaScript to handle the intro screen and start button
 document.getElementById('start-button').addEventListener('click', function () {
-  document.getElementById('intro-screen').style.display = 'none'; // Hide intro screen
-  document.getElementById('game-container').style.display = 'block'; // Show game container
-  startGame(); // Start the game after hiding the intro screen
+  document.getElementById('intro-screen').style.display = 'none';
+  document.getElementById('game-container').style.display = 'block';
+  startGame();
 });
 
 function showTextNode(textNodeIndex) {
@@ -82,10 +81,10 @@ function selectOption(option) {
     showTextNode(nextTextNodeId);
     victorySound.play();
 
-    // Delay restarting the game
+  
     setTimeout(() => {
       startGame();
-    }, 20000); //(seconds)
+    }, 20000);
 
     return;
   }
